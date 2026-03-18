@@ -1,5 +1,5 @@
-# src/projectdavid_orm/ormInterface.py
-from projectdavid_orm.projectdavid_orm.models import *
+# src/projectdavid_services/services_interface.py
+from projectdavid_services.services.models import *
 
 
 class OrmInterface:

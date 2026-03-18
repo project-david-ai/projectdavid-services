@@ -3,41 +3,47 @@ requires = ["setuptools>=61.0", "wheel"]
 build-backend = "setuptools.build_meta"
 
 [project]
-name = "projectdavid-orm"
+name = "projectdavid-services"
 version = "1.1.4"
-description = "Shared servicec classes  for ProjectDavid services"
+description = "Shared service classes for ProjectDavid services"
 readme = "README.md"
 authors = [
   { name = "Francis N.", email = "francis.neequaye@projectdavid.co.uk" }
 ]
 license = { text = "Polyform" }
-keywords = ["orm", "sqlalchemy", "models", "projectdavid", "internal"]
+keywords = ["services", "sqlalchemy", "projectdavid", "internal"]
 requires-python = ">=3.10"
 
 dependencies = [
-  "sqlalchemy>=2.0",
-  "pymysql",
-  "pydantic>=2.0",
+  "sqlalchemy>=2.0.0",
+  "PyMySQL",             # Matches target environment casing
+  "pydantic>=2.0.0",
   "python-dotenv",
-  "projectdavid_common==0.50.0",
+  "fastapi>=0.110.0",
+  "python-multipart",    # Required for FastAPI File uploads
+  "pysmb",               # REQUIRED for SambaClient to function
+  "projectdavid_common",
+  "projectdavid-orm>=1.1.0"
 ]
+
 
 [project.optional-dependencies]
 dev = [
-  "pytest",
+  "pytest>=7.0.0",
   "black",
-  "isort"
+  "isort",
+  "httpx"
 ]
 
 [project.urls]
-Homepage = "https://github.com/frankie336/projectdavid-orm"
+Homepage = "https://github.com/project-david-ai/projectdavid-services"
 
 [tool.setuptools]
 package-dir = { "" = "src" }
 
 [tool.setuptools.packages.find]
 where = ["src"]
-include = ["projectdavid_orm", "projectdavid_orm.*"]
+include = ["projectdavid_services", "projectdavid_services.*"]
 
 [tool.black]
 line-length = 100
@@ -51,3 +57,5 @@ exclude = [".venv", ".git", "__pycache__", "build", "dist"]
 
 [tool.isort]
 profile = "black"
+
+
