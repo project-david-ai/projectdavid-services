@@ -1,3 +1,10 @@
+## [1.0.2](https://github.com/project-david-ai/projectdavid-services/compare/v1.0.1...v1.0.2) (2026-03-18)
+
+
+### Bug Fixes
+
+* update README to reflect package rename to `projectdavid-services` ([f946bd7](https://github.com/project-david-ai/projectdavid-services/commit/f946bd7df468d2427dcb4f21bea506a6a97a61bc))
+
 ## [1.0.1](https://github.com/project-david-ai/projectdavid-services/compare/v1.0.0...v1.0.1) (2026-03-18)
 
 
