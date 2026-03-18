@@ -1,3 +1,10 @@
+## [1.0.4](https://github.com/project-david-ai/projectdavid-services/compare/v1.0.3...v1.0.4) (2026-03-18)
+
+
+### Bug Fixes
+
+* remove unused FastAPI dependency from pyproject.toml ([5b075ef](https://github.com/project-david-ai/projectdavid-services/commit/5b075eff7bd96be2c12ad3ea9f0d3396dc7875b8))
+
 ## [1.0.3](https://github.com/project-david-ai/projectdavid-services/compare/v1.0.2...v1.0.3) (2026-03-18)
 
 
