@@ -1,4 +1,4 @@
-# projectdavid-orm
+# projectdavid-services
 
 Shared services for the ProjectDavid platform.
 
@@ -15,4 +15,4 @@ Any service that needs direct DB access simply installs this package and imports
 ---
 ## Installation
 ```bash
-pip install projectdavid-orm
+pip install projectdavid-services
