@@ -1,3 +1,10 @@
+## [1.0.1](https://github.com/project-david-ai/projectdavid-services/compare/v1.0.0...v1.0.1) (2026-03-18)
+
+
+### Bug Fixes
+
+* update GitHub Actions workflow permissions and cleanup comments ([3ed5113](https://github.com/project-david-ai/projectdavid-services/commit/3ed51137fb0eef0f65af371875f7458dbe6b1760))
+
 # 1.0.0 (2026-03-18)
 
 
