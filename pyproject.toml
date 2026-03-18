@@ -19,7 +19,7 @@ dependencies = [
   "PyMySQL",             # Matches target environment casing
   "pydantic>=2.0.0",
   "python-dotenv",
-  "fastapi",
+
   "python-multipart",    # Required for FastAPI File uploads
   "pysmb",               # REQUIRED for SambaClient to function
   "projectdavid_common",
