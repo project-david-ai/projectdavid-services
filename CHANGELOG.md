@@ -1,3 +1,10 @@
+## [1.0.3](https://github.com/project-david-ai/projectdavid-services/compare/v1.0.2...v1.0.3) (2026-03-18)
+
+
+### Bug Fixes
+
+* remove version constraint for fastapi in pyproject.toml ([2ef59d3](https://github.com/project-david-ai/projectdavid-services/commit/2ef59d3933814d678567d79274f0d904d3c0c4c4))
+
 ## [1.0.2](https://github.com/project-david-ai/projectdavid-services/compare/v1.0.1...v1.0.2) (2026-03-18)
 
 
