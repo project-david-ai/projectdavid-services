@@ -1,3 +1,11 @@
+## [1.0.5](https://github.com/project-david-ai/projectdavid-services/compare/v1.0.4...v1.0.5) (2026-03-19)
+
+
+### Bug Fixes
+
+* pin versions for projectdavid_common and projectdavid-orm in pyproject.toml ([81e2409](https://github.com/project-david-ai/projectdavid-services/commit/81e240997f0afa120d5f1a0ae2e226b3f878a249))
+* pin versions for projectdavid_common and projectdavid-orm in pyproject.toml ([6985464](https://github.com/project-david-ai/projectdavid-services/commit/6985464cdd027f6a036b530161fa32962a8ec8c9))
+
 ## [1.0.4](https://github.com/project-david-ai/projectdavid-services/compare/v1.0.3...v1.0.4) (2026-03-18)
 
 
