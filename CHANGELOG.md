@@ -1,3 +1,13 @@
+## [1.0.7](https://github.com/project-david-ai/projectdavid-services/compare/v1.0.6...v1.0.7) (2026-03-19)
+
+
+### Bug Fixes
+
+* relax content type check in `validate_file_type` method ([1b83b29](https://github.com/project-david-ai/projectdavid-services/commit/1b83b2981c1bdfa324e2aaf04271c996cdc495cc))
+* remove unused FastAPI dependency from pyproject.toml ([600554e](https://github.com/project-david-ai/projectdavid-services/commit/600554edb8b2a660c6609a3757061d25b8baf028))
+* remove version constraint for fastapi in pyproject.toml ([954cc53](https://github.com/project-david-ai/projectdavid-services/commit/954cc539fb90da72a525b62f54693211c0ea584f))
+* update README to reflect package rename to `projectdavid-services` ([fa451c9](https://github.com/project-david-ai/projectdavid-services/commit/fa451c910a0871354004a4c05027ca5a07fc6429))
+
 ## [1.0.6](https://github.com/project-david-ai/projectdavid-services/compare/v1.0.5...v1.0.6) (2026-03-19)
 
 
