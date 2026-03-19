@@ -55,17 +55,25 @@ class FileService:
 
     def validate_file_type(self, filename: str, content_type: str = None) -> str:
         mime_type = get_mime_type(filename)
+
+        # 1. Check if the extension is supported at all
         if not mime_type:
             raise HTTPException(
                 status_code=400,
                 detail=f"Unsupported file type: {os.path.splitext(filename)[1].lower()}. "
                 f"Supported types: {list(SUPPORTED_MIME_TYPES.keys())}",
             )
+
+        # 2. Relaxed Mismatch Check
+        # If the client sends a specific type, it MUST match the extension...
+        # UNLESS the client sends 'application/octet-stream' (the universal fallback).
         if content_type and content_type != mime_type:
-            raise HTTPException(
-                status_code=400,
-                detail=f"Content type mismatch: expected {mime_type}, got {content_type}",
-            )
+            if content_type != "application/octet-stream":
+                raise HTTPException(
+                    status_code=400,
+                    detail=f"Content type mismatch: expected {mime_type}, got {content_type}",
+                )
+
         return mime_type
 
     def validate_user(self, user_id: str) -> User:
