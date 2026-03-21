@@ -23,7 +23,7 @@ dependencies = [
   "python-multipart",    # Required for FastAPI File uploads
   "pysmb",               # REQUIRED for SambaClient to function
 
-  "projectdavid-orm==1.1.10"
+  "projectdavid-orm==1.1.12"
 ]
 
 
