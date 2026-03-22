@@ -1,3 +1,10 @@
+## [1.0.9](https://github.com/project-david-ai/projectdavid-services/compare/v1.0.8...v1.0.9) (2026-03-20)
+
+
+### Bug Fixes
+
+* bump projectdavid-orm to 1.1.10 in pyproject.toml ([608c1c4](https://github.com/project-david-ai/projectdavid-services/commit/608c1c4cf6d9135c2cd1ab521f46ffe2e088e932))
+
 ## [1.0.8](https://github.com/project-david-ai/projectdavid-services/compare/v1.0.7...v1.0.8) (2026-03-19)
 
 
