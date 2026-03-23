@@ -1,3 +1,13 @@
+## [1.0.12](https://github.com/project-david-ai/projectdavid-services/compare/v1.0.11...v1.0.12) (2026-03-23)
+
+
+### Bug Fixes
+
+* bump "projectdavid-orm==1.2.0" ([d168a33](https://github.com/project-david-ai/projectdavid-services/commit/d168a3316fefc9acc4a47a21cece4d4a21e003f0))
+* bump "projectdavid-orm==1.4.0" ([dff054d](https://github.com/project-david-ai/projectdavid-services/commit/dff054de0261c46e3a97b1e63b66bdcc7ba491ed))
+* bump projectdavid-orm to 1.1.10 in pyproject.toml ([e2366b0](https://github.com/project-david-ai/projectdavid-services/commit/e2366b083eb4191062c1ad7d44e596d6b8c65ee6))
+* bump projectdavid-orm to 1.1.12 in pyproject.toml ([dbdab52](https://github.com/project-david-ai/projectdavid-services/commit/dbdab52511eab8897bb24e31d3588be3295943da))
+
 ## [1.0.11](https://github.com/project-david-ai/projectdavid-services/compare/v1.0.10...v1.0.11) (2026-03-22)
 
 
