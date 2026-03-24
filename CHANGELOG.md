@@ -1,3 +1,10 @@
+## [1.0.13](https://github.com/project-david-ai/projectdavid-services/compare/v1.0.12...v1.0.13) (2026-03-24)
+
+
+### Bug Fixes
+
+* bump "projectdavid-orm==1.5.0" ([984aae0](https://github.com/project-david-ai/projectdavid-services/commit/984aae0537d749f0b7d267cda9e04d6f36b2b1e9))
+
 ## [1.0.12](https://github.com/project-david-ai/projectdavid-services/compare/v1.0.11...v1.0.12) (2026-03-23)
 
 
