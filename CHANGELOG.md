@@ -1,3 +1,15 @@
+# [1.1.0](https://github.com/project-david-ai/projectdavid-services/compare/v1.0.12...v1.1.0) (2026-03-29)
+
+
+### Bug Fixes
+
+* bump "projectdavid-orm==1.5.0" ([984aae0](https://github.com/project-david-ai/projectdavid-services/commit/984aae0537d749f0b7d267cda9e04d6f36b2b1e9))
+
+
+### Features
+
+* bump projectdavid-orm to 1.6.0, Gold Standard CI, PolyForm licence, COMMERCIAL.md, SECURITY.md, pre-commit, mypy ([45f6082](https://github.com/project-david-ai/projectdavid-services/commit/45f6082c329c9fb205d6f7b97de1000164c5e31c))
+
 ## [1.0.12](https://github.com/project-david-ai/projectdavid-services/compare/v1.0.11...v1.0.12) (2026-03-23)
 
 
