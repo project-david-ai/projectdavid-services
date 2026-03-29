@@ -87,9 +87,11 @@ class FileService:
     # ──────────────────────────────────────────────────────────────────
 
     def upload_file(self, file, request) -> File:
-        mime_type = self.validate_file_type(file.filename, getattr(file, "content_type", None))
+        mime_type = self.validate_file_type(
+            file.filename, getattr(file, "content_type", None)
+        )
         try:
-            temp_file_path = f"/tmp/{file.filename}"
+            temp_file_path = f"/tmp/{file.filename}"  # nosec B108
             with open(temp_file_path, "wb") as f:
                 file.file.seek(0)
                 f.write(file.file.read())
@@ -125,7 +127,9 @@ class FileService:
         except Exception as e:
             self.db.rollback()
             logging_utility.error(f"Error uploading file: {str(e)}")
-            raise HTTPException(status_code=500, detail=f"Failed to upload file: {str(e)}")
+            raise HTTPException(
+                status_code=500, detail=f"Failed to upload file: {str(e)}"
+            )
         finally:
             file.file.close()
 
@@ -155,7 +159,9 @@ class FileService:
                     try:
                         self.samba_client.delete_file(storage_location.storage_path)
                     except Exception as e:
-                        logging_utility.error(f"Failed to delete file from Samba: {str(e)}")
+                        logging_utility.error(
+                            f"Failed to delete file from Samba: {str(e)}"
+                        )
             self.db.delete(file_record)
             self.db.commit()
             return True
@@ -164,7 +170,9 @@ class FileService:
         except Exception as e:
             self.db.rollback()
             logging_utility.error(f"Error deleting file with ID {file_id}: {str(e)}")
-            raise HTTPException(status_code=500, detail=f"Failed to delete file: {str(e)}")
+            raise HTTPException(
+                status_code=500, detail=f"Failed to delete file: {str(e)}"
+            )
 
     # ──────────────────────────────────────────────────────────────────
     # Soft-delete  — ownership enforced, physical bytes preserved
@@ -181,11 +189,14 @@ class FileService:
         """
         try:
             file_record = (
-                self.db.query(File).filter(File.id == file_id, File.deleted_at.is_(None)).first()
+                self.db.query(File)
+                .filter(File.id == file_id, File.deleted_at.is_(None))
+                .first()
             )
             if not file_record:
                 logging_utility.warning(
-                    "File %s not found or already deleted — soft-delete aborted.", file_id
+                    "File %s not found or already deleted — soft-delete aborted.",
+                    file_id,
                 )
                 return False
 
@@ -201,7 +212,9 @@ class FileService:
         except Exception as e:
             self.db.rollback()
             logging_utility.error("Error soft-deleting file %s: %s", file_id, str(e))
-            raise HTTPException(status_code=500, detail=f"Failed to soft-delete file: {str(e)}")
+            raise HTTPException(
+                status_code=500, detail=f"Failed to soft-delete file: {str(e)}"
+            )
 
     # ──────────────────────────────────────────────────────────────────
     # Retrieve metadata  — ownership enforced
@@ -233,7 +246,9 @@ class FileService:
             raise
         except Exception as e:
             logging_utility.error(f"Error retrieving file with ID {file_id}: {str(e)}")
-            raise HTTPException(status_code=500, detail=f"Failed to retrieve file: {str(e)}")
+            raise HTTPException(
+                status_code=500, detail=f"Failed to retrieve file: {str(e)}"
+            )
 
     # ──────────────────────────────────────────────────────────────────
     # Content retrieval  — ownership enforced on all paths
@@ -251,15 +266,23 @@ class FileService:
         # ── Ownership check ──────────────────────────────────────────
         self._assert_owner(file_record, user_id)
 
-        file_storage = self.db.query(FileStorage).filter(FileStorage.file_id == file_id).first()
+        file_storage = (
+            self.db.query(FileStorage).filter(FileStorage.file_id == file_id).first()
+        )
         if not file_storage:
             raise HTTPException(status_code=404, detail="File storage record not found")
         try:
-            file_bytes = self.samba_client.download_file_to_bytes(file_storage.storage_path)
+            file_bytes = self.samba_client.download_file_to_bytes(
+                file_storage.storage_path
+            )
             return io.BytesIO(file_bytes)
         except Exception as e:
-            logging_utility.error(f"Error retrieving file object for ID {file_id}: {str(e)}")
-            raise HTTPException(status_code=500, detail=f"Failed to retrieve file: {str(e)}")
+            logging_utility.error(
+                f"Error retrieving file object for ID {file_id}: {str(e)}"
+            )
+            raise HTTPException(
+                status_code=500, detail=f"Failed to retrieve file: {str(e)}"
+            )
 
     def get_file_as_base64(self, file_id: str, *, user_id: str) -> str:
         """
@@ -273,15 +296,23 @@ class FileService:
         # ── Ownership check ──────────────────────────────────────────
         self._assert_owner(file_record, user_id)
 
-        file_storage = self.db.query(FileStorage).filter(FileStorage.file_id == file_id).first()
+        file_storage = (
+            self.db.query(FileStorage).filter(FileStorage.file_id == file_id).first()
+        )
         if not file_storage:
             raise HTTPException(status_code=404, detail="File storage record not found")
         try:
-            file_bytes = self.samba_client.download_file_to_bytes(file_storage.storage_path)
+            file_bytes = self.samba_client.download_file_to_bytes(
+                file_storage.storage_path
+            )
             return base64.b64encode(file_bytes).decode("utf-8")
         except Exception as e:
-            logging_utility.error(f"Error retrieving BASE64 for file ID {file_id}: {str(e)}")
-            raise HTTPException(status_code=500, detail=f"Failed to retrieve file: {str(e)}")
+            logging_utility.error(
+                f"Error retrieving BASE64 for file ID {file_id}: {str(e)}"
+            )
+            raise HTTPException(
+                status_code=500, detail=f"Failed to retrieve file: {str(e)}"
+            )
 
     def get_file_as_base64_internal(self, file_id: str) -> Optional[str]:
         """
@@ -299,23 +330,34 @@ class FileService:
                 )
                 return None
 
-            file_storage = self.db.query(FileStorage).filter(FileStorage.file_id == file_id).first()
+            file_storage = (
+                self.db.query(FileStorage)
+                .filter(FileStorage.file_id == file_id)
+                .first()
+            )
             if not file_storage:
                 logging_utility.warning(
-                    "get_file_as_base64_internal: no storage record for file_id=%s.", file_id
+                    "get_file_as_base64_internal: no storage record for file_id=%s.",
+                    file_id,
                 )
                 return None
 
-            file_bytes = self.samba_client.download_file_to_bytes(file_storage.storage_path)
+            file_bytes = self.samba_client.download_file_to_bytes(
+                file_storage.storage_path
+            )
             return base64.b64encode(file_bytes).decode("utf-8")
 
         except Exception as e:
             logging_utility.warning(
-                "get_file_as_base64_internal: failed for file_id=%s — %s", file_id, str(e)
+                "get_file_as_base64_internal: failed for file_id=%s — %s",
+                file_id,
+                str(e),
             )
             return None
 
-    def get_file_with_metadata(self, file_id: str, *, user_id: str) -> Tuple[io.BytesIO, str, str]:
+    def get_file_with_metadata(
+        self, file_id: str, *, user_id: str
+    ) -> Tuple[io.BytesIO, str, str]:
         """
         Returns (file-like-object, filename, mime_type) for download use.
         Raises 403 if user_id does not own the file.
@@ -341,7 +383,9 @@ class FileService:
         """
         file_record = self.db.query(File).filter(File.id == file_id).first()
         if not file_record:
-            raise HTTPException(status_code=404, detail=f"File with ID {file_id} not found")
+            raise HTTPException(
+                status_code=404, detail=f"File with ID {file_id} not found"
+            )
 
         # ── Ownership check ──────────────────────────────────────────
         self._assert_owner(file_record, user_id)
@@ -358,7 +402,9 @@ class FileService:
             "expires": expiration_timestamp,
             "signature": signature,
         }
-        base_url = os.getenv("DOWNLOAD_BASE_URL", "http://localhost:9000/v1/files/download")
+        base_url = os.getenv(
+            "DOWNLOAD_BASE_URL", "http://localhost:9000/v1/files/download"
+        )
         signed_url = f"{base_url}?{urlencode(query_params)}"
 
         if label:

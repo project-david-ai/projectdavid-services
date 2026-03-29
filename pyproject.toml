@@ -8,35 +8,39 @@ version = "1.0.12"
 description = "Shared service classes for ProjectDavid services"
 readme = "README.md"
 authors = [
-  { name = "Francis N.", email = "francis.neequaye@projectdavid.co.uk" }
+  { name = "Francis N.", email = "engineering@projectdavid.co.uk" }
 ]
-license = { text = "Polyform" }
+license = { text = "PolyForm Noncommercial License 1.0.0" }
 keywords = ["services", "sqlalchemy", "projectdavid", "internal"]
 requires-python = ">=3.10"
 
+
 dependencies = [
   "sqlalchemy>=2.0.0",
-  "PyMySQL",             # Matches target environment casing
+  "PyMySQL",
   "pydantic>=2.0.0",
   "python-dotenv",
-
-  "python-multipart",    # Required for FastAPI File uploads
-  "pysmb",               # REQUIRED for SambaClient to function
-
-  "projectdavid-orm==1.5.0"
+  "python-multipart",
+  "pysmb",
+  "projectdavid-orm==1.6.0"
 ]
 
 
 [project.optional-dependencies]
 dev = [
   "pytest>=7.0.0",
-  "black",
-  "isort",
+  "black==24.1.1",
+  "isort==5.13.2",
+  "bandit==1.7.7",
+  "mypy>=1.0",
+  "pre-commit",
   "httpx"
 ]
 
 [project.urls]
 Homepage = "https://github.com/project-david-ai/projectdavid-services"
+Documentation = "https://docs.projectdavid.co.uk/docs"
+Changelog = "https://github.com/project-david-ai/projectdavid-services/blob/main/CHANGELOG.md"
 
 [tool.setuptools]
 package-dir = { "" = "src" }
@@ -46,16 +50,21 @@ where = ["src"]
 include = ["projectdavid_services", "projectdavid_services.*"]
 
 [tool.black]
-line-length = 100
-target-version = ["py310"]
-skip-string-normalization = true
+line-length = 88
+target-version = ["py310", "py311", "py312"]
 
 [tool.flake8]
-max-line-length = 200
+max-line-length = 88
 extend-ignore = ["E203"]
 exclude = [".venv", ".git", "__pycache__", "build", "dist"]
 
 [tool.isort]
 profile = "black"
+line_length = 88
 
-
+[tool.mypy]
+python_version = "3.11"
+warn_return_any = false
+warn_unused_configs = true
+ignore_missing_imports = true
+exclude = ["tests/"]
