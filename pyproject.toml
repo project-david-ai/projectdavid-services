@@ -22,7 +22,7 @@ dependencies = [
   "python-dotenv",
   "python-multipart",
   "pysmb",
-  "projectdavid-orm==1.6.1"
+  "projectdavid-orm>=1.6.2"
 ]
 
 
