@@ -1,3 +1,11 @@
+## [1.2.1](https://github.com/project-david-ai/projectdavid-services/compare/v1.2.0...v1.2.1) (2026-04-05)
+
+
+### Bug Fixes
+
+* **deps:** relax projectdavid-orm pin to minimum version constraint ([b798e17](https://github.com/project-david-ai/projectdavid-services/commit/b798e17cb8c10d3437edf0fcaa12ec08ca3e2971))
+* **imports:** replace internal ORM path with top-level package import ([12309f5](https://github.com/project-david-ai/projectdavid-services/commit/12309f54e5f4fce5b414f703ace83b64353a95f7))
+
 # [1.2.0](https://github.com/project-david-ai/projectdavid-services/compare/v1.1.0...v1.2.0) (2026-03-29)
 
 

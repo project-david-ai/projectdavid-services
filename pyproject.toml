@@ -4,7 +4,7 @@ build-backend = "setuptools.build_meta"
 
 [project]
 name = "projectdavid-services"
-version = "1.2.0"
+version = "1.2.1"
 description = "Shared service classes for ProjectDavid services"
 readme = "README.md"
 authors = [
