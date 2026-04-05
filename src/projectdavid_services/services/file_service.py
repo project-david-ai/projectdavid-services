@@ -11,7 +11,7 @@ from fastapi import HTTPException
 from projectdavid_common import UtilsInterface, ValidationInterface
 from projectdavid_common.constants.mime_types import SUPPORTED_MIME_TYPES, get_mime_type
 from projectdavid_common.utilities.logging_service import LoggingUtility
-from projectdavid_orm.projectdavid_orm.models import File, FileStorage, User
+from projectdavid_orm import File, FileStorage, User
 from sqlalchemy.orm import Session
 
 from ..utilities.samba_client import SambaClient
