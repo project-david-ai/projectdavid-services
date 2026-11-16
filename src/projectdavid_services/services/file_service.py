@@ -100,7 +100,7 @@ class FileService:
                 object="file",
                 bytes=os.path.getsize(temp_file_path),
                 created_at=datetime.now(),
-                expires_at=datetime.utcnow() + timedelta(hours=1),
+                expires_at=None,
                 filename=file.filename,
                 purpose=request.purpose,
                 user_id=request.user_id,  # always auth_key.user_id, set in router
