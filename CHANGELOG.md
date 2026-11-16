@@ -1,3 +1,10 @@
+## [1.2.2](https://github.com/project-david-ai/projectdavid-services/compare/v1.2.1...v1.2.2) (2026-11-16)
+
+
+### Bug Fixes
+
+* **files:** default uploads to permanent retention ([a3ec5f1](https://github.com/project-david-ai/projectdavid-services/commit/a3ec5f1180eb7a2c8904bd108e02ee6ac8c04f62))
+
 ## [1.2.1](https://github.com/project-david-ai/projectdavid-services/compare/v1.2.0...v1.2.1) (2026-04-05)
 
 
